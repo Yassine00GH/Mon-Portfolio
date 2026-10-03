@@ -1,0 +1,50 @@
+<div class="site-shell">
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="nav-wrap">
+    <nav class="nav container">
+      <button class="brand" (click)="scroll('home')" aria-label="Accueil"><span class="brand-mark">YG</span><span>Yassine<span class="muted">.dev</span></span></button>
+      <div class="nav-links" [class.open]="menuOpen">
+        <button (click)="scroll('about')">À propos</button><button (click)="scroll('skills')">Compétences</button><button (click)="scroll('projects')">Projets</button><button (click)="scroll('experience')">Parcours</button><button class="nav-cta" (click)="scroll('contact')">Me contacter</button>
+      </div>
+      <button class="menu-btn" (click)="menuOpen=!menuOpen" aria-label="Menu">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero container">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot"></span> Disponible pour PFE & projets freelance</div>
+        <h1>Je transforme des idées en <span class="gradient-text">solutions digitales.</span></h1>
+        <p class="hero-sub">Yassine Ghorbel — étudiant en Technologie Informatique, orienté développement web & logiciel. Je conçois des interfaces modernes, des applications et des solutions connectées aux données.</p>
+        <div class="hero-actions"><button class="primary" (click)="scroll('projects')">Voir mes projets <span>↗</span></button><button class="secondary" (click)="scroll('contact')">Parlons de votre projet</button></div>
+        <div class="socials"><a href="https://github.com/Yassine00GH/" target="_blank">GitHub ↗</a><a href="https://www.linkedin.com/in/yassine-ghorbel-0a9771344/" target="_blank">LinkedIn ↗</a><span>Nabeul · Tunisie</span></div>
+      </div>
+      <div class="hero-card">
+        <div class="code-top"><span></span><span></span><span></span><b>developer.ts</b></div>
+        <pre><code><i>const</i> developer = {{ '{' }}
+  name: <em>'Yassine Ghorbel'</em>,
+  focus: <em>'Web & Software'</em>,
+  stack: [
+    <em>'Angular'</em>, <em>'Java'</em>, <em>'PHP'</em>,
+    <em>'Python'</em>, <em>'Flutter'</em>
+  ],
+  mindset: <em>'Build. Learn. Improve.'</em>
+{{ '}' }};</code></pre>
+        <div class="code-footer"><span>●</span> open to opportunities</div>
+      </div>
+    </section>
+
+    <section class="metrics container"><div><strong>7+</strong><span>projets académiques & personnels</span></div><div><strong>9</strong><span>technologies principales</span></div><div><strong>2027</strong><span>diplôme Licence TI</span></div><div><strong>∞</strong><span>envie d'apprendre</span></div></section>
+
+    <section id="about" class="section container split"><div><p class="kicker">01 — À PROPOS</p><h2>Un profil technique avec une vraie culture <span class="gradient-text">utilisateur.</span></h2></div><div class="section-copy"><p>Je suis étudiant en Licence Technologie de l’Informatique à l’ISET de Nabeul. Mon parcours m’a permis de travailler sur des projets web, logiciels, mobiles, data et intelligence artificielle.</p><p>Au-delà du code, mon expérience avec les utilisateurs m’a appris à écouter un besoin, comprendre un problème et chercher une solution claire. Mon objectif : construire des produits utiles, propres et maintenables.</p><div class="mini-grid"><div><b>01</b><span>Développement</span></div><div><b>02</b><span>Résolution de problèmes</span></div><div><b>03</b><span>Culture produit</span></div><div><b>04</b><span>Apprentissage continu</span></div></div></div></section>
+
+    <section id="skills" class="section container"><div class="section-heading"><div><p class="kicker">02 — STACK</p><h2>Des compétences orientées <span class="gradient-text">projet.</span></h2></div><p>Une stack polyvalente construite à travers des projets concrets.</p></div><div class="skill-grid"><div class="skill-card" *ngFor="let group of ['Frontend','Backend','IA & Data','Mobile','Data','Tools']"><div class="skill-head"><h3>{{group}}</h3><span>{{getSkillCountByGroup(group)}} tech.</span></div><div *ngFor="let s of getSkillsByGroup(group)" class="skill-row"><div><span>{{s.name}}</span><small>{{s.level}}%</small></div><div class="bar"><i [style.width.%]="s.level"></i></div></div></div></div></section>
+
+    <section id="projects" class="section container"><div class="section-heading"><div><p class="kicker">03 — PROJETS</p><h2>Ce que j'ai <span class="gradient-text">construit.</span></h2></div><p>Des projets qui montrent ma capacité à passer d’un besoin à une solution fonctionnelle.</p></div><div class="filters"><button *ngFor="let f of filters" [class.active]="activeFilter===f" (click)="setFilter(f)">{{f}}</button></div><div class="project-grid"><article class="project" *ngFor="let p of filteredProjects" [class.featured]="p.featured"><div class="project-visual"><span>{{p.icon}}</span><small>{{p.category}}</small></div><div class="project-body"><div class="project-title"><h3>{{p.title}}</h3><span>↗</span></div><p>{{p.description}}</p><div class="tags"><span *ngFor="let t of p.stack.split(' · ')">{{t}}</span></div></div></article></div></section>
+
+    <section id="experience" class="section container"><div class="section-heading"><div><p class="kicker">04 — PARCOURS</p><h2>Formation, expériences & <span class="gradient-text">évolution.</span></h2></div></div><div class="timeline"><div class="timeline-item"><div class="time">2024 — 2027</div><div><h3>Licence en Technologie de l’Informatique</h3><p>ISET de Nabeul · Formation orientée développement, systèmes d’information et technologies logicielles.</p></div></div><div class="timeline-item"><div class="time">Expérience</div><div><h3>Stage — Développement Web</h3><p>Découverte d’un environnement professionnel de développement, participation aux activités techniques et travail en équipe.</p></div></div><div class="timeline-item"><div class="time">Expérience</div><div><h3>Stage — Télécommunications</h3><p>Découverte du secteur, des processus et de l’environnement technique des télécommunications.</p></div></div><div class="timeline-item"><div class="time">Expérience</div><div><h3>Service client — ISIE</h3><p>Échanges avec des publics nationaux et internationaux : écoute, communication, compréhension des besoins et qualité de service.</p></div></div></div></section>
+
+    <section id="contact" class="contact container"><div><p class="kicker">05 — CONTACT</p><h2>Un projet, un PFE ou une <span class="gradient-text">opportunité ?</span></h2><p>Je suis ouvert aux projets web/logiciels et aux opportunités professionnelles qui me permettent de construire des solutions concrètes et de progresser.</p></div><div class="contact-box"><a href="mailto:yassineghorbel62@gmail.com"><span>Email</span><b>yassineghorbel62@gmail.com</b><i>↗</i></a><a href="https://github.com/Yassine00GH/" target="_blank"><span>GitHub</span><b>github.com/Yassine00GH</b><i>↗</i></a><a href="https://www.linkedin.com/in/yassine-ghorbel-0a9771344/" target="_blank"><span>LinkedIn</span><b>linkedin.com/in/yassine-ghorbel</b><i>↗</i></a></div></section>
+  </main>
+  <footer class="footer container"><span>© 2026 Yassine Ghorbel</span><span>Designed & built with Angular</span><button (click)="scroll('home')">Retour en haut ↑</button></footer>
+</div>
